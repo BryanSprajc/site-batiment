@@ -7,13 +7,13 @@ margin: 0;
 padding: 0;
 }
 body {
-    
+  
   line-height: 1.4;
   background-color: #f7f6f2;
   color: #222;
   width: 100%;
 }
-
+/*
 header{
     background-color: #f7f6f2;
     position: fixed;
@@ -34,17 +34,79 @@ header{
     color: #111827;
 }
 .hero {
-    padding: 0 8%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 3rem;
     width: 100%;
-    height: calc(100vh - 78.4px);
-    margin-top: 78.4px;
-    margin: 78.4px auto 78.4px auto;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 78.4px auto 0 auto;
+}*/
+header {
+    background-color: #f7f6f2;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    height: 78.4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 100%;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+  }
+  
+  header h2 {
+    font-size: 1.2rem;
+    font-family: 'Lora';
+    font-weight: 400;
+    color: #111827;
+  }
+  
+  .hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    min-height: 100vh;
+    padding: 90px 8% 40px 8%; /* espace compensant le header */
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+.hero-content {
+    max-width: 600px;
 }
+
+.hero h1 {
+    font-family: 'Lora', serif;
+    line-height: 1.2;
+    font-size: clamp(2rem, 5vw, 4rem); /* responsive */
+    font-weight: 700;
+    color: #131826;
+  }
+  
+  .hero p {
+    margin: 1rem 0;
+    color: #222;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+  
+  .hero img {
+    margin: 0rem 0;
+    aspect-ratio: 1 / 1;
+    max-width: 575px;
+    width: 100%;
+    height: auto;
+    flex-shrink: 1;
+    border-radius: 5px;
+  }
+
+/*
 .hero h1 {
     font-family: 'Lora';
     line-height: 1.2;
@@ -52,6 +114,7 @@ header{
   font-weight: 700;
   color: #131826;
 }
+
 .hero p {
   margin: 1rem 0;
   color: #222;
@@ -60,12 +123,34 @@ header{
   font-size: 1.5rem;
 }
 .hero img {
-  max-width: 100%;
   margin: 1rem 0;
   aspect-ratio: 1/1;
   max-width: 575px;
-  max-height: 575px;
-}
+  width: 100%;
+  height: auto;
+}*/
+@media (max-width: 1000px) {
+    .hero {
+      flex-direction: column-reverse;
+      text-align: left;
+      gap: 2rem;
+    }
+  
+    .hero img {
+      max-width: 100%;
+    }
+  
+    .hero h1 {
+      font-size: clamp(1.7rem, 6vw, 3rem);
+    }
+  
+    .hero p {
+      font-size: clamp(1.2rem, 4vw, 1.25rem);
+    }
+    .hero button{
+        font-size: clamp(1rem, 4vw, 1.25rem);
+    }
+  }
 .imagex {
     position: relative;
     display: flex;
@@ -74,6 +159,7 @@ header{
     align-items: center;
     color: white;
     width: 100%;
+    height: auto;
     aspect-ratio: 4/2;
     background: url('imagecrop.jpg')no-repeat center/cover;
     background-color: rgba(0, 0, 0, 0.5);
@@ -81,33 +167,33 @@ header{
     -webkit-clip-path: polygon(33% 0, 66% 10%, 100% 1%, 100% 90%, 66% 100%, 33% 90%, 0 100%, 0 10%);
     clip-path: polygon(33% 0, 66% 10%, 100% 1%, 100% 90%, 66% 100%, 33% 90%, 0 100%, 0 10%);
     margin: 50px 0;
+    padding: 50px 0;
 }
 .imagex h2,
-.imagex p{
-    width: 50%;
-    text-align: center;
+.imagex p {
+  width: min(90%, 800px);
+  margin: 0.5rem 0;
+  text-align: center;
 }
 
-.imagex h2{
-    font-size: 4.3rem;
-    font-family: 'Lora';
-    font-weight: 600;
+.imagex h2 {
+  font-size: clamp(2rem, 5vw, 4.3rem);
+  font-family: 'Lora', serif;
+  font-weight: 600;
 }
-.imagex p{
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 1.5rem;
+
+.imagex p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
 }
-@media(max-width:1000px) {
-    .imagex h2,
-    .imagex p{
-        width: 80%;
+@media (max-width: 1000px) {
+    .imagex h2 {
+      font-size: clamp(1.7rem, 6vw, 3rem);
     }
-    .imagex h2{
-        font-size: 3rem;
-    }
-    .imagex p{
-        font-size: 1.2rem;
+  
+    .imagex p {
+      font-size: clamp(1rem, 4vw, 1.25rem);
     }
 }
 section{
@@ -125,7 +211,7 @@ section{
     width: 100%;    
     font-family: 'Lora';
     font-weight: 600;
-    font-size: 3rem;
+    font-size: clamp(1.7rem, 5vw, 4rem); /* responsive */
     padding: 20px 0;
 }
 .grillagecard{
@@ -133,7 +219,7 @@ section{
     display: grid;
     grid-template-columns:repeat(3, 1fr);
     justify-content: space-between;
-    grid-gap: 2.3em;
+    grid-gap: 2em;
 }
 .cardd{
 }
@@ -148,17 +234,30 @@ section{
 }
 .cardd p{
     font-family: 'Lora';
-    padding: 24px 0;
-    font-size: 2rem;
+    padding: 1.5rem 0;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 600;
     line-height: 1.25;
 }
-
+@media(max-width:1000px) {
+    .grillage{
+        padding: 0 20px;
+    }
+    .grillagecard{
+        grid-template-columns:repeat(2, 1fr);
+    }
+}
+@media(max-width:700px) {
+    .grillagecard{
+        grid-template-columns:repeat(1, 1fr);
+    }
+}
 .mainpente{
-    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
     background-color: #172621;
     color: #fff;
     padding: 50px 0;
+    width: 100%;
 }
 .circle{
     height: 100px;
@@ -169,14 +268,19 @@ section{
 }
 .testimonial {
   font-family: 'Lora';
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 600;
-  margin: 50px 0;
+  margin: 70px 0;
 }
 .testimonial p span{
     font-size: 1.4rem;
     font-family: 'Inter';
     font-weight: 400;
+}
+@media(max-width:1000px) {
+    .mainpente{
+        clip-path: polygon(0 2%, 100% 0, 100% 98%, 0% 100%);
+    }
 }
 .btn {
   background: #bf5b00;
@@ -206,37 +310,136 @@ section{
 }
 
 .pricing {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   text-align: center;
+  width: 100%;
+  padding: 0 8%;
+  line-height: 1.6;
 }
 .pricinginto{
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  /*margin: 48px 20px;*/
+  margin: 20px 0 48px 0;
+  align-items: center;
+  position: relative;
 }
 .pricing h3{
     font-family: 'Lora';
     font-weight: 600;
-    font-size: 2.8rem;
+    font-size: clamp(1.7rem, 6vw, 3rem);
 }
 .pricing-card{
     border: solid 1px gray;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: left;
     font-family: 'Lora';
     font-weight: 600;
     padding: 24px;
     margin: 50px 0;
+    max-width: 500px;
+    flex: 1;
+}
+.pricing-center{
+  z-index: 1; 
+  align-self: center;
+  border: solid 2px gray;
+}
+.a{
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.c{
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.content-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* permet de prendre toute la hauteur disponible */
+}
+.content-wrapper > *{
+  margin-bottom: 24px;
+}
+@media(max-width:550px) {
+
 }
 .pricing-card > *{
     margin-bottom: 24px;
 }
 .pricing-card h4{
-    font-size: 1.5rem;
+  font-size: clamp(1.2rem, 1.3vw + 0.5rem, 1.6rem);
+    font-weight: 600;
 }
-.pricing-card ul{
-    list-style-type: none;
-    
+.pricing-card p{
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: clamp(1rem, 1vw + 0.3rem, 1.2rem);
+}
+.pricing-card strong{
+  font-size: clamp(2.2rem, 2vw + 1rem, 3.2rem);
+  font-family: 'Lora';
+  font-weight: 600;
+}
+.princing-card-btn{
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #994D0A;
+  font-size: 16px;
+  border: none;
+  color: white;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+.pricing-card ul,
+.content-wrapper ul{
+    list-style-type: none;  
+    margin-bottom: 0;
+}
+.pricing-card ul li{
+  font-family: 'Inter';
+  font-weight: 400;
+}
+.pricing-card ul li i{
+  font-size: 16px;
+}
+.limid{
+  margin-bottom: 12px;
+}
+.lilast{
+  margin-bottom: 0;
+}
+.popular{
+  font-family: 'Inter';
+  font-weight: 400;
+  background-color: #fff;
+  color: black;
+  padding: 4px 12px;
+  width: min-content;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+@media (max-width: 1100px) {
+  .pricinginto{
+    flex-direction: column;
+    align-items: center;
+  }
+  .a{
+    border: solid 1px gray;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .c{
+    border: solid 1px gray;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .pricing-card{
+    margin: 10px auto;
+  }
 }
 .faq-item {
   margin-bottom: 1rem;
@@ -266,4 +469,54 @@ footer {
   .hero img {
     flex: 1;
   }
+}
+
+
+
+/* Very important for having a smooth transitions. */
+.swiper-free-mode > .swiper-wrapper {
+    transition-timing-function: linear;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+.u-wrapper {
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.c-carousel {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.c-carousel__wrapper.swiper {
+  margin: 0 0px;
+  position: static;
+}
+
+.c-carousel__inner-wrapper.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.c-carousel img {
+  margin: 0 auto;
 }
